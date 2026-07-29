@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Blessing AI</title>
+<link rel="icon" href="assets/logo.png" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="app-header">
+    <img src="assets/logo.png" alt="Blessing AI" class="logo" />
+    <div class="header-text">
+      <h1>Blessing AI</h1>
+      <p>Ton assistante intelligente</p>
+    </div>
+  </header>
+
+  <!-- ===== VUES ===== -->
+  <main id="views">
+
+    <!-- ACCUEIL -->
+    <section class="view active" id="view-accueil">
+      <article class="verse-card" id="verse-of-day">
+        <span class="verse-eyebrow">Verset du jour</span>
+        <p class="verse-text" id="vod-text">Chargement…</p>
+        <p class="verse-ref" id="vod-ref"></p>
+        <button class="btn-ghost" id="vod-fav-btn">♡ Ajouter aux favoris</button>
+      </article>
+
+      <h2 class="section-title">Avant ta tâche</h2>
+      <p class="section-hint">Choisis un contexte, reçois un verset adapté.</p>
+      <div class="context-grid" id="context-grid"></div>
+
+      <div id="context-result" class="context-result hidden">
+        <span class="verse-eyebrow" id="ctx-theme"></span>
+        <p class="verse-text" id="ctx-text"></p>
+        <p class="verse-ref" id="ctx-ref"></p>
+        <button class="btn-primary" id="ctx-start-btn">Commencer</button>
+      </div>
+    </section>
+
+    <!-- MEDITATION -->
+    <section class="view" id="view-meditation">
+      <h2 class="section-title">Méditation du jour</h2>
+      <div class="med-block">
+        <span class="verse-eyebrow">📖 Verset</span>
+        <p class="verse-text" id="med-verse"></p>
+        <p class="verse-ref" id="med-ref"></p>
+      </div>
+      <div class="med-block">
+        <span class="verse-eyebrow">💬 Réflexion</span>
+        <p class="med-body" id="med-reflection"></p>
+      </div>
+      <div class="med-block">
+        <span class="verse-eyebrow">🙏 Prière</span>
+        <p class="med-body" id="med-prayer"></p>
+      </div>
+      <div class="med-block">
+        <span class="verse-eyebrow">🎯 Défi spirituel</span>
+        <p class="med-body" id="med-challenge"></p>
+      </div>
+      <div class="med-block">
+        <span class="verse-eyebrow">📝 Mes notes</span>
+        <textarea id="med-notes" placeholder="Écris ce que Dieu te dit aujourd'hui..."></textarea>
+        <button class="btn-primary" id="med-save-btn">Enregistrer</button>
+      </div>
+    </section>
+
+    <!-- PRIERES -->
+    <section class="view" id="view-prieres">
+      <h2 class="section-title">Prières</h2>
+      <p class="section-hint">Choisis un moment de prière.</p>
+      <div class="prayer-list" id="prayer-list"></div>
+      <div id="prayer-detail" class="prayer-detail hidden">
+        <span class="verse-eyebrow" id="prayer-detail-title"></span>
+        <p class="med-body" id="prayer-detail-text"></p>
+      </div>
+    </section>
+
+    <!-- HISTORIQUE / FAVORIS -->
+    <section class="view" id="view-historique">
+      <h2 class="section-title">Favoris</h2>
+      <div class="list" id="fav-list"></div>
+      <h2 class="section-title">Historique</h2>
+      <div class="list" id="history-list"></div>
+    </section>
+
+    <!-- PARAMETRES -->
+    <section class="view" id="view-parametres">
+      <h2 class="section-title">Personnalisation</h2>
+
+      <label class="field">
+        <span>Traduction biblique</span>
+        <select id="pref-translation">
+          <option value="LSG">Louis Segond (LSG)</option>
+        </select>
+      </label>
+
+      <label class="field">
+        <span>Nombre de versets par jour</span>
+        <input type="number" id="pref-count" min="1" max="10" value="1" />
+      </label>
+
+      <label class="field">
+        <span>Heure — Bonjour + verset</span>
+        <input type="time" id="pref-morning" value="06:00" />
+      </label>
+
+      <label class="field">
+        <span>Heure — Rappel de gratitude</span>
+        <input type="time" id="pref-noon" value="12:00" />
+      </label>
+
+      <label class="field">
+        <span>Heure — Bonne nuit + verset</span>
+        <input type="time" id="pref-evening" value="21:00" />
+      </label>
+
+      <fieldset class="field">
+        <legend>Thèmes préférés</legend>
+        <div id="pref-themes" class="theme-chips"></div>
+      </fieldset>
+
+      <button class="btn-primary" id="pref-save-btn">Enregistrer mes préférences</button>
+      <p class="hint-small" id="pref-status"></p>
+
+      <button class="btn-ghost" id="notif-enable-btn">Activer les notifications (Capacitor)</button>
+    </section>
+
+  </main>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="bottom-nav">
+    <button class="nav-btn active" data-view="accueil">🏠<span>Accueil</span></button>
+    <button class="nav-btn" data-view="meditation">📖<span>Méditation</span></button>
+    <button class="nav-btn" data-view="prieres">🙏<span>Prières</span></button>
+    <button class="nav-btn" data-view="historique">⭐<span>Favoris</span></button>
+    <button class="nav-btn" data-view="parametres">⚙️<span>Réglages</span></button>
+  </nav>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "appId": "com.blessing.blessingai",
+  "appName": "Blessing AI",
+  "webDir": "www",
+  "bundledWebRuntime": false,
+  "backgroundColor": "#0D0D14",
+  "server": {
+    "androidScheme": "https"
+  }
+}
